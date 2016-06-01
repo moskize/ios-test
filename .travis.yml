@@ -1,0 +1,12 @@
+language: objective-c
+before_install:
+- gem install cocoapods -v '0.39.0'
+- git submodule update --init --recursive
+- brew update
+- if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+script:
+- xctool clean -project ios-test.xcodeproj -scheme ios-test
+- xctool build -project ios-test.xcodeproj -scheme ios-test -sdk iphoneos -configuration Debug archive -archivePath ./ios-test-target
+- xcodebuild -exportArchive -archivePath ios-test-target.xcarchive -exportPath ./ios-test.ipa -exportFormat
+after_success:
+- fir publish ios-test.ipa -T "2885fceda77326c0d0201cf8d495da7e"
