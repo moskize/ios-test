@@ -1,4 +1,6 @@
 language: objective-c
+rvm:
+- 2.2.0
 before_install:
 - gem install cocoapods -v '0.39.0'
 - git submodule update --init --recursive
