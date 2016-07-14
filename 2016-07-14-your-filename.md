@@ -4,4 +4,4 @@ Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the 
 
 
 ![]({{site.baseurl}}/good.png)
-
+![nice]({{site.baseurl}}//nice.png)
